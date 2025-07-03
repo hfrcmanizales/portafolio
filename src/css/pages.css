@@ -1,0 +1,81 @@
+.about-me {
+  background-color: #f4f4f4;
+  padding: 40px 20px;
+  text-align: center;
+
+}
+
+.about-me .container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.about-me h2 {
+  font-size: 28px;
+  color: #333;
+  font-family: sans-serif;
+  
+
+}
+
+.about-me p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+ 
+}
+
+
+
+/*image */
+.flip-card {
+  width: 300px; /* Ajusta según necesidad */
+  height: 300px;
+  perspective: 1000px;
+  margin: auto; /* Necesario para efecto 3D */
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; /* Oculta el lado trasero cuando no está girado */
+}
+
+.flip-card-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-card-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff;
+  color: white;
+  transform: rotateY(180deg);
+}

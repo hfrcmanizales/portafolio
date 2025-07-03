@@ -1,0 +1,464 @@
+#fondo{
+	background-image: url("https://services.meteored.com/img/article/-por-que-las-nubes-no-se-caen--7332-1_512.jpg");
+}
+
+#primer-proyecto{
+	margin-top: 80px;
+
+}
+
+.crud-titulo{
+	margin-top: 240px;
+}
+
+
+.container-crud {
+      max-width: 800px;
+      margin: auto;
+      margin-top: 100px;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .crud-h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .crud-form {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #dee2e6;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f1f1f1;
+    }
+
+    .actions button {
+
+      margin-right: 0.5rem;
+      width: 100px;
+      background-color: #28a745;
+    }
+
+    .actions .delete {
+      background-color: #dc3545;
+    }
+
+    .actions button:hover {
+      opacity: 0.9;
+    }
+
+    .actions{
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    }
+
+/*madal*/
+
+@media (max-width: 768px) {
+  #primer-proyecto .bg-light {
+    padding: 1rem;
+  }
+
+  #fondo {
+    padding: 1rem;
+  }
+
+  #fondo .card.w-75 {
+    margin-top: 1rem;
+  }
+
+  .crud-titulo {
+    padding: 1.5rem 1rem;
+  }
+
+  .crud-titulo h4,
+  .crud-titulo h6 {
+    font-size: 1.1rem;
+  }
+
+  .crud-titulo p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #primer-proyecto {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  #fondo .card.w-75 {
+    width: 100% !important;
+  }
+
+  #fondo {
+    padding: 1rem;
+  }
+
+  #primer-proyecto .bg-light p {
+    font-size: 1rem;
+  }
+}
+
+
+/*crud*/
+
+.crud-titulo {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo claro (por defecto) */
+.light-mode .crud-titulo {
+  background-color: #ffffff;
+  color: #212529;
+}
+
+.light-mode .crud-titulo h4,
+.light-mode .crud-titulo h6,
+.light-mode .crud-titulo strong {
+  color: #0d6efd;
+}
+
+/* Modo oscuro */
+.dark-mode .crud-titulo {
+  background-color: #1e1e2f;
+  color: #f1f1f1;
+}
+
+.dark-mode .crud-titulo h4,
+.dark-mode .crud-titulo h6,
+.dark-mode .crud-titulo strong {
+  color: #66d9ef;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .crud-titulo {
+    padding: 1.5rem;
+  }
+
+  .crud-titulo p,
+  .crud-titulo h4,
+  .crud-titulo h6 {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .crud-titulo {
+    padding: 1rem;
+  }
+
+  .crud-titulo p,
+  .crud-titulo h4,
+  .crud-titulo h6 {
+    font-size: 0.9rem;
+    text-align: justify;
+  }
+
+  .crud-titulo p strong {
+    font-size: 1.1rem;
+  }
+}
+
+
+/*crud*/
+
+.container-crud {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.crud-h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+/* Formularios */
+.crud-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.crud-form input {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  min-width: 160px;
+  flex: 1;
+}
+
+.crud-form button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #0d6efd;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.crud-form button:hover {
+  background-color: #0b5ed7;
+}
+
+/* Tabla */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.crud-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.crud-table th,
+.crud-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.crud-table th {
+  background-color: #f8f9fa;
+}
+
+/* Botones */
+.edit-btn,
+.delete-btn {
+  margin: 0 0.3rem;
+  padding: 0.5rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Modo oscuro */
+.dark-mode .container-crud {
+  background-color: #1e1e2f;
+  color: #f1f1f1;
+}
+
+.dark-mode .crud-form input {
+  background-color: #2a2a40;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+.dark-mode .crud-table {
+  color: #f1f1f1;
+}
+
+.dark-mode .crud-table th {
+  background-color: #2a2a40;
+}
+
+.dark-mode .crud-table td {
+  background-color: #1e1e2f;
+}
+
+.dark-mode .edit-btn {
+  background-color: #ffca2c;
+  color: #212529;
+}
+
+.dark-mode .delete-btn {
+  background-color: #e55353;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .crud-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .crud-table th,
+  .crud-table td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
+
+
+
+
+/*calculadora*/
+
+.contenedor-calculadora {
+  width: 420px;
+  margin: 50px auto;
+  background-color: #2144ac;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.boton-contenedor{
+  height: 83px;
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 38px;
+  background-color: #1b1b32;
+  color: white;
+  border-radius: 25px;
+  border :2px solid white;
+  margin: 4px;
+  cursor: pointer;
+}
+.operador{
+  background-color: #00471b;
+}
+
+.boton-contenedor:hover{
+  background-color: #5401a7;
+}
+.operador:hover{
+  background-color: #ff661b;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+button {
+  flex: 1;
+  margin: 5px;
+  padding: 20px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #2e2e2e;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+
+/*pantaya*/
+
+.inputs{
+  height: 83px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 30px;
+  background-color: #0a0a23;
+  font-weight: bold;
+  color: white;
+  padding: 10px 30px 10px 10px;
+  margin: 1px solid #888;
+
+
+}
+
+/*clear*/
+.boton-clear{
+  height: 80px;
+  font-size: 1.6em;
+  display: flex;
+  flex: 1 ;
+  background-color: #ac0246;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color:white;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.boton-clear:hover{
+  background-color: #ebb000;
+}
+
+
+
+.apis{
+  margin: 100px;
+}
