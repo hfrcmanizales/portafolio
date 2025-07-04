@@ -24,7 +24,7 @@ function Proyect(){
 
        const {modoDark,togleModoDark}=useModo()
           
-       const [city,setCity]=useState<string | null>("")
+       const [city,setCity]=useState<string>("")
        const [error,setError]=useState<string | null>(null)
        const [clima,setClima]=useState<climas|null>(null)
 
