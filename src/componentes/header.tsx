@@ -2,7 +2,7 @@ import {useModo} from "../context/modoOscuro"
 import React,{useState,useEffect} from "react";
 import { Sun, Moon } from "lucide-react";
 import { Link } from "react-router-dom";
-import "../app.css"
+import "../App.css"
 
 
 function Header(){
