@@ -79,7 +79,7 @@ function TomarFoto(){
           <h3>Foto Capturada:</h3>
           <img src={photo} alt="Captura" />
           <br />
-          <button onClick={() => setPhoto(null)}>📷 Tomar Otra</button>
+          <button onClick={() =>startCamera()}>📷 Tomar Otra</button>
         </div>
       )}
     </div>
