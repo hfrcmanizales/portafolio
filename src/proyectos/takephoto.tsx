@@ -4,11 +4,13 @@ import "../css/pages.css"
 
 
 
-   const {modoDark,togleModoDark}=useModo()
 
 
 
 function TomarFoto(){
+
+      const {modoDark,togleModoDark}=useModo()
+
 
    const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -44,7 +46,7 @@ function TomarFoto(){
 
   
 	return(
-     <div clasName={modoDark?"dark-mode":"light-mode"}>
+     <div className={modoDark?"dark-mode":"light-mode"}>
      	 <div className="container">
       <h2>Captura de Rostro</h2>
 
