@@ -15,19 +15,19 @@ function TomarFoto(){
    const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [photo, setPhoto] = useState<string | null>(null);
+  const [cameraActive, setCameraActive] = useState(false);
 
-  useEffect(() => {
-    navigator.mediaDevices
-      .getUserMedia({ video: true })
-      .then((stream) => {
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-        }
-      })
-      .catch((err) => {
-        console.error("Error al acceder a la cámara: ", err);
-      });
-  }, []);
+    const startCamera = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        setCameraActive(true);
+      }
+    } catch (error) {
+      console.error("No se pudo acceder a la cámara:", error);
+    }
+  };
 
   const takePhoto = () => {
     const canvas = canvasRef.current;
@@ -42,7 +42,16 @@ function TomarFoto(){
       }
     }
   };
-  
+
+  const stopCamera = () => {
+    if (videoRef.current?.srcObject) {
+      const stream = videoRef.current.srcObject as MediaStream;
+      stream.getTracks().forEach(track => track.stop());
+      videoRef.current.srcObject = null;
+      setCameraActive(false);
+    }
+  };
+
 
   
 	return(
