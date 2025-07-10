@@ -7,7 +7,7 @@ import ConsumirApi from "../proyectos/conumirApi"
 import Calculadora from "../proyectos/calculadora"
 import ProyectoAuthCard from "../proyectos/autentication"
 import Tatu from "../proyectos/tatu"
-
+import TomarFoto from "../proyectos/takephoto"
 
 
 
@@ -212,7 +212,7 @@ Apliqué CSS personalizado para lograr un estilo limpio, moderno y fácil de lee
 
      <Calculadora/>
  </div>
-  
+ <TomarFoto/> 
 
 <ProyectoAuthCard/>
 
