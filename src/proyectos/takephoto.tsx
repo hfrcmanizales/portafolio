@@ -60,6 +60,7 @@ function TakePhoto() {
   return (
     <div className={modoDark?"dark-mode":"light-mode"}>
       <div className="camera-container">
+      <p>Es un proyecto sencillo, en el cual aprendi a manipular la camara usando navigator. Consiste en solo encender la camara,tomar una imagen y mostrarla.Pero es la base para hacer proyectos mas complejos, como por ejemplo enviar la imagen y guardarla en un backend</p>
     <h2>Cámara de video</h2>
 
     <div className="flex-layout">
