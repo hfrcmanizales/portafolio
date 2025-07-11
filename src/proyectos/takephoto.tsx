@@ -59,28 +59,30 @@ function TakePhoto() {
 
   return (
     <div className={modoDark?"dark-mode":"light-mode"}>
-      <h2>Cámara de video</h2>
-      <div>
-        <div>
-          <video ref={videoRef} autoPlay style={{ width: "100%", maxWidth: "600px" }} />
-        </div>
-        <div>
-          <button onClick={encenderCamara}>Encender</button>
-          <button onClick={apagarCamara} style={{ marginLeft: 10 }}>Apagar</button>
-          <button onClick={tomarFoto} style={{ marginLeft: 10 }}>Tomar foto</button>
-        </div>
-        <div>
-          <canvas ref={canvasRef} style={{ display: "none" }} />
-        </div>
-        <div>
-          <h3>Foto</h3>
-          {foto && (
-            <div style={{ marginTop: "20px" }}>
-              <img src={foto} alt="foto" style={{ maxWidth: "100%" }} />
-            </div>
-          )}
-        </div>
+      <div className="camera-container">
+    <h2>Cámara de video</h2>
+
+    <div className="flex-layout">
+      <div className="video-wrapper">
+        <video ref={videoRef} autoPlay />
       </div>
+
+      <div className="photo-wrapper">
+        <h3>Foto</h3>
+        {foto && (
+          <img src={foto} alt="foto" />
+        )}
+      </div>
+    </div>
+
+    <div className="button-wrapper">
+      <button onClick={encenderCamara}>Encender</button>
+      <button onClick={apagarCamara}>Apagar</button>
+      <button onClick={tomarFoto}>Tomar foto</button>
+    </div>
+
+    <canvas ref={canvasRef} style={{ display: "none" }} />
+  </div>
     </div>
   );
 }
