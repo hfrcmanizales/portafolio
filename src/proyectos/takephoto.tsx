@@ -4,87 +4,93 @@ import "../css/pages.css"
 
 
 
+function TakePhoto() {
+
+    const {modoDark,togleModoDark}=useModo()
 
 
-
-function TomarFoto(){
-
-      const {modoDark,togleModoDark}=useModo()
-
-
-   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [photo, setPhoto] = useState<string | null>(null);
-  const [cameraActive, setCameraActive] = useState(false);
+  const streamRef = useRef<MediaStream | null>(null);
+  const [foto, setFoto] = useState<string | null>(null);
 
-    const startCamera = async () => {
+  const encenderCamara = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      streamRef.current = stream;
+
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
-        setCameraActive(true);
       }
     } catch (error) {
-      console.error("No se pudo acceder a la cámara:", error);
+      alert("Ocurrió un error al intentar acceder a la cámara.");
+      console.error("No se pudo encender la cámara:", error);
     }
   };
 
-  const takePhoto = () => {
-    const canvas = canvasRef.current;
-    const video = videoRef.current;
+  const apagarCamara = () => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
 
-    if (canvas && video) {
-      const context = canvas.getContext('2d');
-      if (context) {
-        context.drawImage(video, 0, 0, 640, 480);
-        const imageData = canvas.toDataURL('image/png');
-        setPhoto(imageData);
+      if (videoRef.current) {
+        videoRef.current.srcObject = null;
       }
     }
   };
 
-  const stopCamera = () => {
-    if (videoRef.current?.srcObject) {
-      const stream = videoRef.current.srcObject as MediaStream;
-      stream.getTracks().forEach(track => track.stop());
-      videoRef.current.srcObject = null;
-      setCameraActive(false);
+  const tomarFoto = () => {
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+
+    if (video && canvas) {
+      const context = canvas.getContext("2d");
+      if (!context) return;
+
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      const dataUrl = canvas.toDataURL("image/png");
+      setFoto(dataUrl);
     }
   };
+
+  return (
+    <div className={modoDark?"dark-mode":"light-mode"}>
+      <h2>Cámara de video</h2>
+      <div>
+        <div>
+          <video ref={videoRef} autoPlay style={{ width: "100%", maxWidth: "600px" }} />
+        </div>
+        <div>
+          <button onClick={encenderCamara}>Encender</button>
+          <button onClick={apagarCamara} style={{ marginLeft: 10 }}>Apagar</button>
+          <button onClick={tomarFoto} style={{ marginLeft: 10 }}>Tomar foto</button>
+        </div>
+        <div>
+          <canvas ref={canvasRef} style={{ display: "none" }} />
+        </div>
+        <div>
+          <h3>Foto</h3>
+          {foto && (
+            <div style={{ marginTop: "20px" }}>
+              <img src={foto} alt="foto" style={{ maxWidth: "100%" }} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default TakePhoto;
+
 
 
   
-	return(
-     <div className={modoDark?"dark-mode":"light-mode"}>
-     	 <div className="container">
-      <h2>Captura de Rostro</h2>
 
-      {!photo && (
-        <div>
-          <video ref={videoRef} width="640" height="480" autoPlay playsInline />
-          <br />
-          <button onClick={takePhoto}>📸 Tomar Foto</button>
-        </div>
-      )}
 
-      <canvas
-        ref={canvasRef}
-        width="640"
-        height="480"
-        style={{ display: 'none' }}
-      />
 
-      {photo && (
-        <div>
-          <h3>Foto Capturada:</h3>
-          <img src={photo} alt="Captura" />
-          <br />
-          <button onClick={() =>startCamera()}>📷 Tomar Otra</button>
-        </div>
-      )}
-    </div>
-     </div>
-		)
-}
-
-export default TomarFoto;
+  
